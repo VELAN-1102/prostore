@@ -69,7 +69,7 @@ const AdminProductsPage = async (props: {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {products.data.map((product) => (
+          {products.data.map((product: any) => (
             <TableRow key={product.id}>
               <TableCell>{formatId(product.id)}</TableCell>
               <TableCell>{product.name}</TableCell>

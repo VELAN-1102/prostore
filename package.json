@@ -12,6 +12,9 @@
     "test:watch": "jest --watch",
     "email": "cp .env ./node_modules/react-email && email dev --dir email --port 3001"
   },
+  "prisma": {
+    "schema": "prisma/schema.prisma"
+  },
   "dependencies": {
     "@auth/core": "0.37.4",
     "@auth/prisma-adapter": "^2.7.4",
@@ -59,7 +62,7 @@
   "devDependencies": {
     "@prisma/client": "^6.18.0",
     "@types/jest": "^29.5.14",
-    "@types/node": "^22.10.0",
+    "@types/node": "^22.18.13",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/ws": "^8.5.13",
