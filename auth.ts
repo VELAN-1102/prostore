@@ -23,6 +23,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         password: { type: 'password' },
       },
       async authorize(credentials) {
+        console.log('--- SIGN-IN ATTEMPT START ---');
+        console.log('Incoming Credentials:', credentials);
         if (credentials == null) return null;
 
         // Find user in database
@@ -34,11 +36,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
         // Check if user exists and if the password matches
         if (user && user.password) {
+          console.log('User found. Stored Hashed Password:', user.password.substring(0, 10) + '...'); // Log a snippet
+          console.log('Running password comparison...');
           const isMatch = await compare(
             credentials.password as string,
             user.password
           );
-
+console.log('Password Comparison Result (isMatch):', isMatch);
           // If password is correct, return user
           if (isMatch) {
             return {
